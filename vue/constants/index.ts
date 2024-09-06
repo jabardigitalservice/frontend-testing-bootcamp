@@ -87,5 +87,37 @@ export const PRODUCTS = [
       'Celana jogger abu-abu dengan bahan lembut dan nyaman, cocok untuk olahraga atau bersantai.',
     originalPrice: 50000,
     discount: 15
+  },
+  {
+    id: 'K7l8M9',
+    name: 'Kaos V-Neck Putih',
+    description:
+      'Kaos V-neck putih dengan potongan slim fit, cocok untuk tampilan kasual yang simpel.',
+    originalPrice: 30000,
+    discount: 5
+  },
+  {
+    id: 'N0o1P2',
+    name: 'Cardigan Panjang Coklat',
+    description:
+      'Cardigan panjang coklat dengan bahan yang lembut, memberikan kesan hangat dan modis.',
+    originalPrice: 78000,
+    discount: 10
+  },
+  {
+    id: 'Q3r4S5',
+    name: 'Kemeja Batik Lengan Pendek',
+    description:
+      'Kemeja batik lengan pendek dengan motif modern, cocok untuk acara semi-formal dan kasual.',
+    originalPrice: 85000,
+    discount: 15
+  },
+  {
+    id: 'T6u7V8',
+    name: 'Celana Kulot Hitam',
+    description:
+      'Celana kulot hitam yang longgar dan nyaman, ideal untuk tampilan santai atau kerja.',
+    originalPrice: 65000,
+    discount: 20
   }
 ]
