@@ -8,8 +8,8 @@ Buatlah integration test pada aplikasi (berdasarkan framework pilihan kamu). Pas
 - Product card harus menampilkan nama produk
 - Product card harus menampilkan deskripsi produk
 - Product card harus menampilkan harga produk
-- Bila product memiliki diskon, tampilkan label diskon di pojok kanan atas Product Card
-- Bila product memiliki diskon, tampilkan harga asli produk (dicoret/striketrough) dan tampilkan harga setelah diskon
+- Bila produk memiliki diskon, tampilkan label diskon di pojok kanan atas Product Card
+- Bila produk memiliki diskon, tampilkan harga asli produk (dicoret/striketrough) dan tampilkan harga setelah diskon
 
 ### 2. Product List
 - Product list menampilkan 8 produk secara default (initial render)
