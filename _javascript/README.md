@@ -1,1 +1,0 @@
-# Vanilla Javascript Testing Workshop
