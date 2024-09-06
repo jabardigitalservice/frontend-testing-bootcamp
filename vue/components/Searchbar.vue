@@ -1,6 +1,7 @@
 <template>
   <div class="mt-2">
     <input
+      v-model="model"
       type="text"
       name="search"
       id="search"
@@ -10,6 +11,8 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  const model = defineModel()
+</script>
 
 <style scoped></style>

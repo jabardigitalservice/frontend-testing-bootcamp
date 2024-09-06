@@ -11,20 +11,22 @@
       </p>
 
       <div class="grid grid-cols-4 gap-6 mt-8">
-        <Searchbar class="col-span-1 mb-4" />
+        <Searchbar v-model="searchQuery" class="col-span-1 mb-4" />
         <div class="col-span-3" />
         <ProductCard
-          v-for="i in 8"
-          :key="i"
-          name="Test Product Dengan Nama Panjang Banget gaes"
-          description="lorem ipsum"
-          :discount="0"
-          :original-price="100000"
+          v-for="product in filteredProducts"
+          :key="product.id"
+          :name="product.name"
+          :description="product.description"
+          :discount="product.discount"
+          :original-price="product.originalPrice"
         />
         <div class="col-span-4 flex justify-center mt-8">
           <button
+            v-show="!hasShownAllProducts"
             type="button"
             class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            @click="loadMoreProducts"
           >
             Load more product
           </button>
@@ -34,3 +36,31 @@
     <AppFooter />
   </main>
 </template>
+
+<script setup lang="ts">
+import { PRODUCTS } from './constants';
+
+const searchQuery = ref('')
+const filteredProducts = ref(PRODUCTS.slice(0, 8))
+
+watch(searchQuery, () => {
+  if (searchQuery.value) {
+    filteredProducts.value = PRODUCTS.filter((product) => {
+      return product.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+    })
+  } else {
+    filteredProducts.value = PRODUCTS.slice(0, 8)
+  }
+})
+
+const hasShownAllProducts = computed(() => {
+  if (searchQuery.value) return true
+
+  return filteredProducts.value.length === PRODUCTS.length
+})
+
+function loadMoreProducts() {
+  const newProducts = PRODUCTS.slice(filteredProducts.value.length)
+  filteredProducts.value.push(...newProducts)
+}
+</script>

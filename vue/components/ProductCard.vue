@@ -22,7 +22,7 @@
             {{ props.name }}
           </a>
         </h3>
-        <p class="font-sm text-gray-500">{{ props.description }}</p>
+        <p class="font-sm text-gray-500 line-clamp-1 pr-4">{{ props.description }}</p>
       </div>
       <div class="flex flex-col flex-shrink-0 justify-start">
         <strike v-show="hasDiscount" class="text-gray-500 text-sm text-end">{{ formattedOriginalPrice }}</strike>
