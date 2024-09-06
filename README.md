@@ -1,3 +1,6 @@
+# Unit Test Workshop
+Lengkapi unit test untuk utility function yang ada pada folder `/_javascript/src/utils`
+
 # Integration Test Workshop
 Buatlah integration test pada aplikasi (berdasarkan framework pilihan kamu). Pastikan aplikasi sudah memenuhi Acceptance Criteria di bawah ini:
 
