@@ -57,3 +57,17 @@ export function validateEmail(str: string) {
 export function isArrayEmpty(arr: Array<any>) {
   return Array.isArray(arr) && arr.length === 0
 }
+
+export function getUrlQueryStringAsObject(url: string) {
+  const questionMarkIndex = url.indexOf('?');
+
+  if(questionMarkIndex === -1) {
+    return ''
+  }
+
+  const queryString = url.slice(questionMarkIndex + 1)
+  return Object.fromEntries(  
+    new URLSearchParams(queryString)
+  )
+}
+
