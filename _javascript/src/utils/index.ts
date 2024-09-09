@@ -37,3 +37,8 @@ export function getReadableFileSize(fileSizeInBytes: number, padding: number = 1
 export function toCamelCase(str: string) {
   return str.replace(/[-_](.)/g, (_, char) => char.toUpperCase());
 }
+
+export function capitalizeText(str: string) {
+  return str.toLowerCase()
+  .replace(/(^|\s)\w/g, c => c.toUpperCase());
+}
