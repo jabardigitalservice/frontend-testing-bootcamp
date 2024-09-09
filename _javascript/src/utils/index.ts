@@ -33,3 +33,7 @@ export function getReadableFileSize(fileSizeInBytes: number, padding: number = 1
 
   return `${Math.max(fileSizeInBytes, 0.1).toFixed(padding)} ${byteUnits[i]}`
 }
+
+export function toCamelCase(str: string) {
+  return str.replace(/[-_](.)/g, (_, char) => char.toUpperCase());
+}
