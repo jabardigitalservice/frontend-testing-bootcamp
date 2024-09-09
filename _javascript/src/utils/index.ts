@@ -42,3 +42,14 @@ export function capitalizeText(str: string) {
   return str.toLowerCase()
   .replace(/(^|\s)\w/g, c => c.toUpperCase());
 }
+
+export function validateEmail(str: string) {
+  if (!str) return "This field must not be empty.";
+
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!regex.test(str)) {
+      return "Invalid email";
+  }
+
+  return "Valid email";
+};
