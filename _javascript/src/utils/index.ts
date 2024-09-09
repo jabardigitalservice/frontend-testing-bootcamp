@@ -53,3 +53,7 @@ export function validateEmail(str: string) {
 
   return "Valid email";
 };
+
+export function isArrayEmpty(arr: Array<any>) {
+  return Array.isArray(arr) && arr.length === 0
+}
