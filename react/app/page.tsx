@@ -51,9 +51,10 @@ export default function Home() {
             <Searchbar handleChange={(e:any) => setSearchQuery(e.target.value)} />
           </div>
           <div className="col-span-3" />
-          {filteredProducts.map((product) => {
+          {filteredProducts.map((product, index) => {
             return (
               <ProductCard
+                key={index}
                 name={product.name}
                 description={product.description}
                 discount={product.discount}
