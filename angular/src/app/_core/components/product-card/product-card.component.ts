@@ -1,19 +1,21 @@
-import { Component, Input } from '@angular/core';
-import { Product } from '../../models';
+import { Component, Input, OnInit } from '@angular/core';
+import { RupiahFormatPipe } from '@core/pipes';
+import { Product } from '@core/models';
+import { calculatePriceWithDiscount } from '@core/utils';
 
 @Component({
   selector: 'app-product-card',
-  standalone: true,
   templateUrl: './product-card.component.html',
+  standalone: true,
+  imports: [RupiahFormatPipe],
 })
-export class ProductCardComponent {
-  @Input() product?: Product;
+export class ProductCardComponent implements OnInit {
+  @Input() product!: Product;
 
-  get formattedOriginalPrice(): string {
-    return 'test';
-  }
-
-  get formattedDiscountedPrice(): string {
-    return 'test';
+  ngOnInit(): void {
+    this.product.discountedPrice = calculatePriceWithDiscount(
+      this.product.originalPrice,
+      this.product.discount
+    );
   }
 }
