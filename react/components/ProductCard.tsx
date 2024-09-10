@@ -10,7 +10,7 @@ type parameter = {
 
 export default function ProductCard(props: parameter) {
   const hasDiscount = useMemo(() => {
-    return props.discount;
+    return props.discount > 0;
   }, [props.discount]);
 
   const formattedOriginalPrice = useMemo(() => {
@@ -27,7 +27,7 @@ export default function ProductCard(props: parameter) {
       {hasDiscount && 
         <div className="absolute top-3 right-3 z-10">
           <span className="bg-red-500 rounded-md px-2.5 py-1.5 text-sm font-semibold text-white">
-            { hasDiscount }%
+            { props.discount }%
           </span>
         </div>
       }
