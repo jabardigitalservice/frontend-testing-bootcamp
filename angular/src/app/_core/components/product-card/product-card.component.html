@@ -1,0 +1,64 @@
+<div class="group relative" data-cy="product-card">
+  @if(product.discount) {
+  <div
+    class="absolute top-3 right-3 z-10"
+    data-cy="product-card__discount-pill"
+  >
+    <span
+      class="bg-red-500 rounded-md px-2.5 py-1.5 text-sm font-semibold text-white"
+    >
+      {{ product.discount }}%
+    </span>
+  </div>
+  }
+  <div
+    class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-xl bg-gray-200 border border-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
+  >
+    <img
+      src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+      alt="Front of men&#039;s Basic Tee in black."
+      class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+      data-cy="product-card__image"
+    />
+  </div>
+  <div class="mt-4 flex justify-between">
+    <div>
+      <h3
+        class="text-md font-bold text-gray-700 pr-4 line-clamp-1"
+        data-cy="product-card__title"
+      >
+        <a href="#">
+          <span aria-hidden="true" class="absolute inset-0"></span>
+          {{ product.name }}
+        </a>
+      </h3>
+      <p
+        class="font-sm text-gray-500 line-clamp-1 pr-4"
+        data-cy="product-card__description"
+      >
+        {{ product.description }}
+      </p>
+    </div>
+    <div class="flex flex-col flex-shrink-0 justify-start">
+      @if(product.discount) {
+      <s
+        class="text-gray-500 text-sm text-end"
+        data-cy="product-card__original-price"
+      >
+        {{ product.originalPrice | rupiahFormat }}
+      </s>
+      }
+      <p
+        class="text-md font-bold text-gray-900"
+        data-cy="product-card__discounted-price"
+      >
+        {{
+          (product.discountedPrice
+            ? product.discountedPrice
+            : product.originalPrice
+          ) | rupiahFormat
+        }}
+      </p>
+    </div>
+  </div>
+</div>
