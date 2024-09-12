@@ -30,7 +30,7 @@ export default function Home() {
   }, [filteredProducts])
 
   function loadMoreProducts() {
-    const newProducts = PRODUCTS.slice(filteredProducts.length)
+    const newProducts = PRODUCTS.slice(0)
     setFilteredProducts([...filteredProducts, ...newProducts]);
   }
 
