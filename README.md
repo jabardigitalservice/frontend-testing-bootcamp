@@ -20,3 +20,4 @@ Buatlah integration test pada aplikasi (berdasarkan framework pilihan kamu). Pas
 - Ketika user menghapus kata kunci dalam input search, tampilkan seluruh produk (initial render)
 - Ketika user mengklik tombol "Load more product", tampilkan seluruh produk (16 produk)
 - Tombol "Load more product" hilang ketika produk yang ditampilkan sudah sesuai dengan jumlah produk yang tersedia atau ketika user menginput kata kunci
+
