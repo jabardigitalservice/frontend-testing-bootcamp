@@ -40,7 +40,7 @@
 import { PRODUCTS } from './constants';
 
 const searchQuery = ref('')
-const filteredProducts = ref(PRODUCTS.slice(0, 8))
+const filteredProducts = ref(PRODUCTS.slice(0, 12))
 
 watch(searchQuery, () => {
   if (searchQuery.value) {
@@ -48,7 +48,7 @@ watch(searchQuery, () => {
       return product.name.toLowerCase().includes(searchQuery.value.toLowerCase())
     })
   } else {
-    filteredProducts.value = PRODUCTS.slice(0, 8)
+    filteredProducts.value = PRODUCTS.slice(0, 12)
   }
 })
 
