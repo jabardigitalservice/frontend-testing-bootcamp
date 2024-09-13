@@ -1,5 +1,5 @@
 import { expect, it, describe } from 'vitest'
-import { getReadableFileSize, toCamelCase, capitalizeText } from './index'
+import { getReadableFileSize, toCamelCase, capitalizeText, validateEmail } from './index'
 
 describe('[utils: getReadableFileSize]', () => {
     it('should return the size of the file with unit size', () => {
@@ -16,5 +16,15 @@ describe('[utils: toCamelCase]', () => {
 describe('[utils: capitalizeText]', () => {
     it('should return string with capitalize every first char of word', () => {
         expect(capitalizeText('Halo teman-teman frontend')).toBe('Halo Teman-teman Frontend')
+    })
+})
+
+describe('[utils: validateEmail]', () => {
+    it('should return "Valid Email"', () => {
+        expect(validateEmail('agung@example.com')).toBe('Valid email')
+    })
+
+    it('should return "Invalid Email"', () => {
+        expect(validateEmail('Waduh waduh waduh')).toBe('Invalid email')
     })
 })
