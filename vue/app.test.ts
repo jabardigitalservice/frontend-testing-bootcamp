@@ -27,4 +27,11 @@ describe('App Component', async () => {
 
         expect(component.findAll('.product-card')).toHaveLength(8)
     })
+
+    it('should 16 data', async () => {
+        const buttonLoadMore = component.find('[data-cy="button__load-more"]')
+        await buttonLoadMore.trigger('click')
+
+        expect(component.findAll('.product-card')).toHaveLength(16)
+    })
 })
