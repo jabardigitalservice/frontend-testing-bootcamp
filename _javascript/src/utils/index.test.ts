@@ -32,8 +32,20 @@ describe('[utils: calculatePriceWithDiscount]', () => {
 })
 
 describe('[utils: getReadableFileSize]', () => {
-  it('should return the size of the file with unit size', () => {
+  it('should return x.0 KB', () => {
       expect(getReadableFileSize(1024)).toBe('1.0 KB')
+  })
+
+  it('should return x.0 MB', () => {
+      expect(getReadableFileSize(2048000)).toBe('2.0 MB')
+  })
+
+  it('should return x MB', () => {
+      expect(getReadableFileSize(2048000, 0)).toBe('2 MB')
+  })
+
+  it('should return x.00 KB', () => {
+      expect(getReadableFileSize(1024, 2)).toBe('1.00 KB')
   })
 })
 
