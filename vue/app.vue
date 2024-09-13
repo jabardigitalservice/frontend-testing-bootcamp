@@ -15,6 +15,7 @@
         <div class="col-span-3" />
         <ProductCard
           v-for="product in filteredProducts"
+          data-cy="product-items"
           :key="product.id"
           :name="product.name"
           :description="product.description"
@@ -23,6 +24,7 @@
         />
         <div class="col-span-4 flex justify-center mt-8">
           <button
+            data-cy="button-load"
             v-show="!hasShownAllProducts"
             type="button"
             class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"

@@ -1,6 +1,6 @@
 <template>
   <div class="group relative">
-    <div v-show="hasDiscount" class="absolute top-3 right-3 z-10">
+    <div v-show="hasDiscount" data-cy="product-discount" class="absolute top-3 right-3 z-10">
       <span class="bg-red-500 rounded-md px-2.5 py-1.5 text-sm font-semibold text-white">
         {{ discount }}%
       </span>
@@ -19,14 +19,14 @@
         <h3 class="text-md font-bold text-gray-700 pr-4 line-clamp-1">
           <a href="#">
             <span aria-hidden="true" class="absolute inset-0"></span>
-            {{ props.name }}
+            <span data-cy="product-name">{{ props.name }}</span>
           </a>
         </h3>
-        <p class="font-sm text-gray-500 line-clamp-1 pr-4">{{ props.description }}</p>
+        <p data-cy="product-desc" class="font-sm text-gray-500 line-clamp-1 pr-4">{{ props.description }}</p>
       </div>
       <div class="flex flex-col flex-shrink-0 justify-start">
-        <strike v-show="hasDiscount" class="text-gray-500 text-sm text-end">{{ formattedOriginalPrice }}</strike>
-        <p class="text-md font-bold text-gray-900">{{ formattedDiscountedPrice }}</p>
+        <strike data-cy="product-price__discount" v-show="hasDiscount" class="text-gray-500 text-sm text-end">{{ formattedOriginalPrice }}</strike>
+        <p data-cy="product-price" class="text-md font-bold text-gray-900">{{ formattedDiscountedPrice }}</p>
       </div>
     </div>
   </div>
