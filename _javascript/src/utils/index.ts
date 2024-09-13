@@ -26,7 +26,7 @@ export const calculatePriceWithDiscount = (price: number, discount: number) => {
 export function getReadableFileSize(fileSizeInBytes: number, padding: number = 1) {
   let i = 0
   const byteUnits = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-  while (fileSizeInBytes > 1024) {
+  while (fileSizeInBytes >= 1024) {
     fileSizeInBytes /= 1024
     i++
   }
