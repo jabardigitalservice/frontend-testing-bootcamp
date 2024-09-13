@@ -16,7 +16,7 @@
     </div>
     <div class="mt-4 flex justify-between">
       <div>
-        <h3 class="text-md font-bold text-gray-700 pr-4 line-clamp-1">
+        <h3 class="text-md font-bold text-gray-700 pr-4 line-clamp-1" data-cy="product-card__name">
           <a href="#">
             <span aria-hidden="true" class="absolute inset-0"></span>
             {{ props.name }}

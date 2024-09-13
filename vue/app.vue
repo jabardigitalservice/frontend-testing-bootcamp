@@ -17,6 +17,7 @@
           v-for="product in filteredProducts"
           :key="product.id"
           :name="product.name"
+          class="product-card"
           :description="product.description"
           :discount="product.discount"
           :original-price="product.originalPrice"
@@ -24,6 +25,7 @@
         <div class="col-span-4 flex justify-center mt-8">
           <button
             type="button"
+            data-cy="button__load-more"
             class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             @click="loadMoreProducts"
           >
