@@ -25,7 +25,7 @@
         <p class="font-sm text-gray-500 line-clamp-1 pr-4">{{ props.description }}</p>
       </div>
       <div class="flex flex-col flex-shrink-0 justify-start">
-        <strike v-show="hasDiscount" class="text-gray-500 text-sm text-end">{{ formattedOriginalPrice }}</strike>
+        <del v-show="hasDiscount" class="text-gray-500 text-sm text-end">{{ formattedOriginalPrice }}</del>
         <p class="text-md font-bold text-gray-900">{{ formattedDiscountedPrice }}</p>
       </div>
     </div>

@@ -17,6 +17,7 @@
           v-for="product in filteredProducts"
           :key="product.id"
           :name="product.name"
+          class="product-card"
           :description="product.description"
           :discount="product.discount"
           :original-price="product.originalPrice"
