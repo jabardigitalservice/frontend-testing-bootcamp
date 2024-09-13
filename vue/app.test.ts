@@ -8,4 +8,23 @@ describe('App Component', async () => {
     it('should show 8 product at first time open', () => {
         expect(component.findAll('.product-card')).toHaveLength(8)
     })
+
+    it('should show related product when search', async () => {
+        const searchQuery = 'Kaos'
+        const searchInput = component.find('#search')
+        await searchInput.setValue(searchQuery)
+
+        const products = component.findAll('[data-cy="product-card__name"]').map((item) => {
+            return item.text().toLowerCase().includes(searchQuery.toLowerCase())
+        })
+
+        expect(products).toContain(true)
+    })
+
+    it('should show initial product data', async () => {
+        const searchInput = component.find('#search')
+        await searchInput.setValue('')
+
+        expect(component.findAll('.product-card')).toHaveLength(8)
+    })
 })
