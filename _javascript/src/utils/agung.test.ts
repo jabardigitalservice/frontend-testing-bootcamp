@@ -1,5 +1,5 @@
 import { expect, it, describe } from 'vitest'
-import { getReadableFileSize, toCamelCase } from './index'
+import { getReadableFileSize, toCamelCase, capitalizeText } from './index'
 
 describe('[utils: getReadableFileSize]', () => {
     it('should return the size of the file with unit size', () => {
@@ -10,5 +10,11 @@ describe('[utils: getReadableFileSize]', () => {
 describe('[utils: toCamelCase]', () => {
     it('should return string with camelCased format', () => {
         expect(toCamelCase('hello-warudo')).toBe('helloWarudo')
+    })
+})
+
+describe('[utils: capitalizeText]', () => {
+    it('should return string with capitalize every first char of word', () => {
+        expect(capitalizeText('Halo teman-teman frontend')).toBe('Halo Teman-teman Frontend')
     })
 })
