@@ -1,5 +1,5 @@
 import { expect, it, describe } from 'vitest'
-import { double, formatCurrencyToIDR, calculatePriceWithDiscount, getReadableFileSize, toCamelCase, capitalizeText, validateEmail } from './index'
+import { double, formatCurrencyToIDR, calculatePriceWithDiscount, getReadableFileSize, toCamelCase, capitalizeText, validateEmail, isArrayEmpty, getUrlQueryStringAsObject, truncateString } from './index'
 
 describe('[utils]: double', () => {
   it('should double a number', () => {
@@ -58,3 +58,56 @@ describe('[utils: validateEmail]', () => {
       expect(validateEmail('Waduh waduh waduh')).toBe('Invalid email')
   })
 })
+
+describe('[utils]: isArrayEmpty', () => {
+  it('should return true if array is empty', () => {
+    expect(isArrayEmpty([])).toBe(true);
+  })
+
+  it('should return false for a non-empty array', () => {
+    expect(isArrayEmpty([1, 2, 3])).toBe(false);
+  });
+
+})
+
+describe('[utils]: getUrlQueryStringAsObject', () => {
+  it('should return an empty object for a URL without a query string', () => {
+    expect(getUrlQueryStringAsObject('http://testing.co.id')).toEqual('');
+  });
+
+  it('should return a correct object for a URL with a query string', () => {
+    expect(getUrlQueryStringAsObject('http://testing.co.id?param1=value1&param2=value2')).toEqual({
+      param1: 'value1',
+      param2: 'value2'
+    });
+  });
+
+  it('should handle URLs with special characters', () => {
+    expect(getUrlQueryStringAsObject('http://testing.co.id?param1=value%201&param2=value%202')).toEqual({
+      param1: 'value 1',
+      param2: 'value 2'
+    });
+  });
+
+  it('should return an empty object if query string is missing', () => {
+    expect(getUrlQueryStringAsObject('http://testing.co.id?')).toEqual({});
+  });
+});
+
+describe('[utils]: truncateString', () => {
+  it('should return the same string if it is shorter than the maxLength', () => {
+    expect(truncateString('test', 5)).toBe('test');
+  });
+
+  it('should truncate the string if it is longer than the maxLength', () => {
+    expect(truncateString('longer than five', 5)).toBe('longe...');
+  });
+
+  it('should handle strings exactly equal to the maxLength', () => {
+    expect(truncateString('five5', 5)).toBe('five5');
+  });
+
+  it('should use the default maxLength if none is provided', () => {
+    expect(truncateString('this is longer than five')).toBe('this ...');
+  });
+});
