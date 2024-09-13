@@ -9,6 +9,7 @@
       class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-xl bg-gray-200 border border-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
     >
       <img
+        data-cy="product-image"
         src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
         alt="Front of men&#039;s Basic Tee in black."
         class="h-full w-full object-cover object-center lg:h-full lg:w-full"
@@ -22,11 +23,11 @@
             {{ props.name }}
           </a>
         </h3>
-        <p class="font-sm text-gray-500 line-clamp-1 pr-4">{{ props.description }}</p>
+        <p class="font-sm text-gray-500 line-clamp-1 pr-4" data-cy="product-description">{{ props.description }}</p>
       </div>
       <div class="flex flex-col flex-shrink-0 justify-start">
-        <del v-show="hasDiscount" class="text-gray-500 text-sm text-end">{{ formattedOriginalPrice }}</del>
-        <p class="text-md font-bold text-gray-900">{{ formattedDiscountedPrice }}</p>
+        <del v-show="hasDiscount" class="text-gray-500 text-sm text-end" data-cy="product-original-price">{{ formattedOriginalPrice }}</del>
+        <p class="text-md font-bold text-gray-900" data-cy="product-discounted-price">{{ formattedDiscountedPrice }}</p>
       </div>
     </div>
   </div>
