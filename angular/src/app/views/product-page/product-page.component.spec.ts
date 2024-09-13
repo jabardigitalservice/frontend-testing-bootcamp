@@ -19,6 +19,10 @@ describe('ProductPageComponent', () => {
     fixture.detectChanges();
   });
 
+  afterEach(() => {
+    fixture.destroy();
+  });
+
   it('should show 8 products on initial render', () => {
     const element = fixture.debugElement.queryAll(
       By.css('[data-cy="product-page__product-card"]')

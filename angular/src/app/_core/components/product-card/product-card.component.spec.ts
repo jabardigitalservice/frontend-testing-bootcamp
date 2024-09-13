@@ -5,6 +5,22 @@ import { By } from '@angular/platform-browser';
 describe('ProductCardComponent', () => {
   let fixture: ComponentFixture<ProductCardComponent>;
   let component: ProductCardComponent;
+  const discountedPrice = {
+    id: 'D4e5F6',
+    name: 'Kemeja Flanel Merah',
+    description:
+      'Kemeja flanel merah dengan motif kotak-kotak yang trendi, pas untuk tampilan kasual.',
+    originalPrice: 75000,
+    discount: 20,
+  };
+  const normalPrice = {
+    id: 'D4e5F6',
+    name: 'Kemeja Flanel Merah',
+    description:
+      'Kemeja flanel merah dengan motif kotak-kotak yang trendi, pas untuk tampilan kasual.',
+    originalPrice: 75000,
+    discount: 0,
+  };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -16,17 +32,14 @@ describe('ProductCardComponent', () => {
     fixture = TestBed.createComponent(ProductCardComponent);
     component = fixture.componentInstance;
 
-    const product = {
-      id: 'D4e5F6',
-      name: 'Kemeja Flanel Merah',
-      description:
-        'Kemeja flanel merah dengan motif kotak-kotak yang trendi, pas untuk tampilan kasual.',
-      originalPrice: 75000,
-      discount: 20,
-    };
+    const product = discountedPrice;
     component.product = product;
 
     fixture.detectChanges();
+  });
+
+  afterEach(() => {
+    fixture.destroy();
   });
 
   it('should contain product image', () => {
@@ -58,18 +71,6 @@ describe('ProductCardComponent', () => {
   });
 
   it('should show label discount at top corner while product has discount', () => {
-    const product = {
-      id: 'D4e5F6',
-      name: 'Kemeja Flanel Merah',
-      description:
-        'Kemeja flanel merah dengan motif kotak-kotak yang trendi, pas untuk tampilan kasual.',
-      originalPrice: 75000,
-      discount: 20,
-    };
-    component.product = product;
-
-    fixture.detectChanges();
-
     const element = fixture.debugElement.query(
       By.css('[data-cy="product-card__discount-pill"]')
     );
@@ -77,15 +78,7 @@ describe('ProductCardComponent', () => {
   });
 
   it('should hide label discount at top right corner while product has not discount', () => {
-    const product = {
-      id: 'D4e5F6',
-      name: 'Kemeja Flanel Merah',
-      description:
-        'Kemeja flanel merah dengan motif kotak-kotak yang trendi, pas untuk tampilan kasual.',
-      originalPrice: 75000,
-      discount: 0,
-    };
-    component.product = product;
+    component.product = normalPrice;
 
     fixture.detectChanges();
 
@@ -96,18 +89,6 @@ describe('ProductCardComponent', () => {
   });
 
   it('should show discount price at bottom corner and striked original price while product has discount', () => {
-    const product = {
-      id: 'D4e5F6',
-      name: 'Kemeja Flanel Merah',
-      description:
-        'Kemeja flanel merah dengan motif kotak-kotak yang trendi, pas untuk tampilan kasual.',
-      originalPrice: 75000,
-      discount: 20,
-    };
-    component.product = product;
-
-    fixture.detectChanges();
-
     const originalPrice = fixture.debugElement.query(
       By.css('s[data-cy="product-card__original-price"]')
     );
@@ -120,15 +101,7 @@ describe('ProductCardComponent', () => {
   });
 
   it('should hide striked original price at bottom corner while product has not discount', () => {
-    const product = {
-      id: 'D4e5F6',
-      name: 'Kemeja Flanel Merah',
-      description:
-        'Kemeja flanel merah dengan motif kotak-kotak yang trendi, pas untuk tampilan kasual.',
-      originalPrice: 75000,
-      discount: 0,
-    };
-    component.product = product;
+    component.product = normalPrice;
 
     fixture.detectChanges();
 

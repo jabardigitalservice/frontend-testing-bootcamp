@@ -86,6 +86,7 @@ describe('[utils: isArrayEmpty]', () => {
   it('should return true if array is empty', () => {
     expect(isArrayEmpty([])).toBeTruthy();
   });
+
   it('should return false if array is empty', () => {
     expect(isArrayEmpty(['testing'])).toBeFalsy();
   });
