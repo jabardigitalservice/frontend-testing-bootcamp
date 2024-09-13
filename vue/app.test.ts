@@ -3,7 +3,10 @@ import { mountSuspended } from '@nuxt/test-utils/runtime'
 import App from '~/app.vue'
 
 describe('App Component', async () => {
-    const component = await mountSuspended(App, { route: '/' })
+    const component = await mountSuspended(App, { 
+        route: '/', 
+        attachTo: document.body
+     })
 
     it('should show 8 product at first time open', () => {
         expect(component.findAll('.product-card')).toHaveLength(8)
@@ -33,5 +36,11 @@ describe('App Component', async () => {
         await buttonLoadMore.trigger('click')
 
         expect(component.findAll('.product-card')).toHaveLength(16)
+    })
+
+    it('button load more should be hidden', async () => {
+        const buttonLoadMore = component.find('[data-cy="button__load-more"]')
+
+        expect((buttonLoadMore).isVisible()).toBe(false)
     })
 })
