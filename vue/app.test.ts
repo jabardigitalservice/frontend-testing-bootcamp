@@ -24,6 +24,11 @@ describe('App Component', async () => {
         expect(products).toContain(true)
     })
 
+    it('button load more should be hidden when search', async () => {
+        const buttonLoadMore = component.find('[data-cy="button__load-more"]')
+        expect((buttonLoadMore).isVisible()).toBe(false)
+    })
+
     it('should show initial product data', async () => {
         const searchInput = component.find('#search')
         await searchInput.setValue('')
@@ -40,7 +45,6 @@ describe('App Component', async () => {
 
     it('button load more should be hidden', async () => {
         const buttonLoadMore = component.find('[data-cy="button__load-more"]')
-
         expect((buttonLoadMore).isVisible()).toBe(false)
     })
 })
